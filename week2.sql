@@ -50,3 +50,11 @@ CREATE TABLE Videos (
  	CONVERT('00:04:26',TIME),
  	'https://www.youtube.com/watch?v=RB-RcX5DS5A&list=PLeDakahyfrO-4kuBioL5ZAoy4j6aCnzWy&index=5'
  );
+
+
+
+
+--2
+/*
+2. Create and populate Reviewers table. Create a second table that provides at least two user reviews for each of at least two of the videos. These should be imaginary reviews that include columns for the user’s name (“Asher”, “Cyd”, etc.), the rating (which could be NULL, or a number between 0 and 5), and a short text review (“Loved it!”). There should be a column that links back to the ID column in the table of videos.
+*/
