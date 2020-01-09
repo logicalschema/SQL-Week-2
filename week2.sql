@@ -55,9 +55,6 @@ CREATE TABLE Videos (
 
 
 --2
-/*
-2. Create and populate Reviewers table. Create a second table that provides at least two user reviews for each of at least two of the videos. These should be imaginary reviews that include columns for the user’s name (“Asher”, “Cyd”, etc.), the rating (which could be NULL, or a number between 0 and 5), and a short text review (“Loved it!”). There should be a column that links back to the ID column in the table of videos.
-*/
 CREATE TABLE Reviewers (
 	username VARCHAR(25),
 	rating INT NULL,
@@ -96,3 +93,11 @@ INSERT INTO Reviewers(username,rating,review,video_id) VALUES (
 	'This is classic Prince and a great video to boot',
 	3
 );
+
+--3
+-- Find the average rating for the Video "When Doves Cry"
+
+SELECT ID, AVG(rating), Title
+FROM Reviewers INNER JOIN Videos
+ON Reviewers.video_id = Videos.ID
+WHERE Videos.ID = 3;
