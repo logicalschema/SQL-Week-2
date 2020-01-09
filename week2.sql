@@ -45,7 +45,7 @@ CREATE TABLE Videos (
  	'https://www.youtube.com/watch?v=YF1R0hc5Q2I&list=PLeDakahyfrO-4kuBioL5ZAoy4j6aCnzWy&index=4'
  );
 
-  INSERT INTO Videos(Title,Length,Url) VALUES (
+ INSERT INTO Videos(Title,Length,Url) VALUES (
  	'Coldplay - The Scientist',
  	CONVERT('00:04:26',TIME),
  	'https://www.youtube.com/watch?v=RB-RcX5DS5A&list=PLeDakahyfrO-4kuBioL5ZAoy4j6aCnzWy&index=5'
@@ -58,3 +58,41 @@ CREATE TABLE Videos (
 /*
 2. Create and populate Reviewers table. Create a second table that provides at least two user reviews for each of at least two of the videos. These should be imaginary reviews that include columns for the user’s name (“Asher”, “Cyd”, etc.), the rating (which could be NULL, or a number between 0 and 5), and a short text review (“Loved it!”). There should be a column that links back to the ID column in the table of videos.
 */
+CREATE TABLE Reviewers (
+	username VARCHAR(25),
+	rating INT NULL,
+	CHECK (rating >= 0 AND rating <= 5),
+	review TEXT,
+	video_id INT NOT NULL,
+	FOREIGN KEY (video_id) REFERENCES Videos(ID)
+);
+
+
+INSERT INTO Reviewers(username,rating,review,video_id) VALUES (
+	'robert_bruce',
+	5,
+	'This is a classic Madonna song and speaks volumes for our present time.',
+	1
+);
+
+
+INSERT INTO Reviewers(username,rating,review,video_id) VALUES (
+	'sally',
+	1,
+	'The fashion is dated and there lacks a call to social action',
+	1
+);
+
+INSERT INTO Reviewers(username,rating,review,video_id) VALUES (
+	'sally',
+	5,
+	'The lyrics are deep and the song remains eternal.',
+	3
+);
+
+INSERT INTO Reviewers(username,rating,review,video_id) VALUES (
+	'robert_bruce',
+	5,
+	'This is classic Prince and a great video to boot',
+	3
+);
